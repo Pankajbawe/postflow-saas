@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --pf-bg: 255 255 255;
+    --pf-surface: 249 250 251;
+    --pf-border: 229 231 235;
+    --pf-text: 17 24 39;
+    --pf-text-muted: 107 114 128;
+  }
+
+  .dark {
+    --pf-bg: 9 9 11;
+    --pf-surface: 24 24 27;
+    --pf-border: 39 39 42;
+    --pf-text: 244 244 245;
+    --pf-text-muted: 161 161 170;
+  }
+
+  * {
+    border-color: rgb(var(--pf-border));
+  }
+
+  body {
+    background-color: rgb(var(--pf-bg));
+    color: rgb(var(--pf-text));
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .pf-bg { background-color: rgb(var(--pf-bg)); }
+  .pf-surface { background-color: rgb(var(--pf-surface)); }
+  .pf-text { color: rgb(var(--pf-text)); }
+  .pf-text-muted { color: rgb(var(--pf-text-muted)); }
+  .pf-border { border-color: rgb(var(--pf-border)); }
+
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.35s ease-out;
+  }
+  .animate-scale-in {
+    animation: scaleIn 0.2s ease-out;
+  }
+  .animate-pulse-soft {
+    animation: pulseSoft 2s ease-in-out infinite;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes pulseSoft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--pf-border));
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--pf-text-muted));
+}
